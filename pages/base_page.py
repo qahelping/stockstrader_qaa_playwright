@@ -1,5 +1,4 @@
 from playwright.sync_api import Locator, Page, expect
-from pytest_playwright_visual.plugin import assert_snapshot
 
 
 class BasePage:

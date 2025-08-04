@@ -1,4 +1,3 @@
-import allure
 import pytest
 from playwright.sync_api import Browser, Page
 from pytest_bdd import given, parsers, scenarios, then, when
@@ -35,7 +34,7 @@ def open_page(login_page: LoginPage) -> None:
 
 
 @given("Open page from FR")
-def open_page(login_fr_page: LoginPage) -> None:
+def open_page_fr(login_fr_page: LoginPage) -> None:
     login_fr_page.goto()
 
 
@@ -69,13 +68,13 @@ def check_chat_opened(login_page: LoginPage) -> None:
     login_page.check_chat_is_opened()
 
 
-@then(parsers.parse('Page translated on "{lang}" and text visible "{expect}"'))
+@then(parsers.parse('Page translated on "{lang}" ' 'and text visible "{expect}"'))
 def check_page_translated(login_page: LoginPage, lang: str, expect: str) -> None:
     login_page.check_selected_language(lang)
     login_page.check_submit_button_text(expect)
 
 
-@then(parsers.parse('Page opened on "{lang}" and text visible "{expect}"'))
+@then(parsers.parse('Page opened on "{lang}" ' 'and text visible "{expect}"'))
 def check_fr_page_translated(login_fr_page: LoginPage, lang: str, expect: str) -> None:
     login_fr_page.check_selected_language(lang)
     login_fr_page.check_submit_button_text(expect)

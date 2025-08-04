@@ -1,10 +1,12 @@
 import allure
 import pytest
 from _pytest.fixtures import FixtureRequest
-from playwright.sync_api import sync_playwright
+
 
 @pytest.hookimpl(hookwrapper=True)
-def pytest_bdd_after_step(request: FixtureRequest, feature, scenario, step, step_func, step_func_args):
+def pytest_bdd_after_step(
+    request: FixtureRequest, feature, scenario, step, step_func, step_func_args
+):
     outcome = yield
     exc = outcome.excinfo
     if exc is not None:
@@ -16,7 +18,7 @@ def pytest_bdd_after_step(request: FixtureRequest, feature, scenario, step, step
             attachment_type=allure.attachment_type.PNG,
         )
 
-# При любом завершении сценария — можно добавить всегда
+
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_bdd_after_scenario(request: FixtureRequest, feature, scenario):
     yield

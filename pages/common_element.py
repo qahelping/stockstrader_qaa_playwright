@@ -1,6 +1,6 @@
+import allure
 from playwright.sync_api import Page, expect
 from pytest_playwright_visual.plugin import assert_snapshot
-import allure
 
 from pages.base_page import BasePage
 
