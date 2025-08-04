@@ -29,9 +29,9 @@ jobs:
     - name: Lint with flake8
       run: |
         make linter
-#    - name: Test with pytest
-#      run: |
-#        make test
+    - name: Test with pytest
+      run: |
+        make test
 #    - name: Generate Allure Report
 #      uses: simple-elf/allure-report-action@v1.8
 #      with:
