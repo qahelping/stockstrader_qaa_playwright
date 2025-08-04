@@ -34,10 +34,10 @@ jobs:
     - name: Generate Allure Report
       uses: simple-elf/allure-report-action@v1.8
       with:
-      allure_results: allure-results
-      report_path: allure-report
-      upload_artifact: true
-      gh_pages: false
+        allure_results: allure-results
+        report_path: allure-report
+        upload_artifact: true
+        gh_pages: false
 #on:
 #  push:
 #    branches: [ master ]
