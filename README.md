@@ -17,7 +17,6 @@
 - Визуальное тестирование (https://pypi.org/project/pytest-playwright-visual/)
 
 ---
-
 ## Команды
 
 ```bash
@@ -27,7 +26,11 @@
 	make clean      — Очистить allure-результаты и отчёты
 	make allure     — Сгенерировать HTML-отчёт из результатов
 	make serve      — Запустить локальный сервер для просмотра allure-отчёта
-	make linter     — Запустить проверку кода ```
+	make linter     — Запустить проверку кода
+```
+
+---
 
 ![Скриншот успешного теста](passed_case.jpg)
 ![Скриншот упавшего теста](failed_case.jpg)
+
