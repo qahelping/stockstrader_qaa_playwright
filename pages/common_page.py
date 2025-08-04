@@ -2,7 +2,7 @@ import allure
 from playwright.sync_api import Page, expect
 from pytest_playwright_visual.plugin import assert_snapshot
 
-from pages.base_page import BasePage
+from pages import BasePage
 
 
 class CommonPage(BasePage):

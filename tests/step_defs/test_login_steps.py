@@ -2,9 +2,8 @@ import pytest
 from playwright.sync_api import Browser, Page
 from pytest_bdd import given, parsers, scenarios, then, when
 
-from core.user import BASE_PASSWORD
-from pages.login_page import LoginPage
-from pages.trading_page import TradingPage
+from core import BASE_PASSWORD
+from pages import LoginPage, TradingPage
 
 scenarios("../features/login.feature")
 
@@ -68,13 +67,13 @@ def check_chat_opened(login_page: LoginPage) -> None:
     login_page.check_chat_is_opened()
 
 
-@then(parsers.parse('Page translated on "{lang}" ' 'and text visible "{expect}"'))
+@then(parsers.parse('Page translated on "{lang}" and text visible "{expect}"'))
 def check_page_translated(login_page: LoginPage, lang: str, expect: str) -> None:
     login_page.check_selected_language(lang)
     login_page.check_submit_button_text(expect)
 
 
-@then(parsers.parse('Page opened on "{lang}" ' 'and text visible "{expect}"'))
+@then(parsers.parse('Page opened on "{lang}" and text visible "{expect}"'))
 def check_fr_page_translated(login_fr_page: LoginPage, lang: str, expect: str) -> None:
     login_fr_page.check_selected_language(lang)
     login_fr_page.check_submit_button_text(expect)

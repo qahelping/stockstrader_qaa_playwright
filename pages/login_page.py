@@ -4,7 +4,7 @@ import allure
 from playwright.sync_api import Locator, Page, expect
 
 from core.urls import BASE_URL
-from pages.common_element import CommonPage
+from pages import CommonPage
 
 
 class LoginPage(CommonPage):

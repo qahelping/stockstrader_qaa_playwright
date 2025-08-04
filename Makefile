@@ -30,4 +30,4 @@ serve:
 linter:
 	black .
 	isort .
-	flake8 --exclude .venv .github
+	flake8 --exclude .venv
