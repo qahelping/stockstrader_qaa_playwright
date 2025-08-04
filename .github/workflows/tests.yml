@@ -1,0 +1,41 @@
+name: Run Playwright Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: 🧪 Run Pytest with Playwright + Allure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          playwright install --with-deps
+
+      - name: ✅ Run tests with pytest
+        run: |
+          source venv/bin/activate
+          pytest --alluredir=allure-results
+
+      - name: 📊 Generate Allure Report
+        uses: simple-elf/allure-report-action@v1.8
+        with:
+          allure_results: allure-results
+          report_path: allure-report
+          upload_artifact: true
+          gh_pages: false
